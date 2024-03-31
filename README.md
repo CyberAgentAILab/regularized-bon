@@ -9,7 +9,13 @@ pip install -r requirements.txt
 
 ## Running RBoN
 
-Running RBoN takes a multiple steps. First you generate a set of responses using sample.sh. We use the same set of samples generated for all the algorithms for fair comparison. compute_wd.sh computes the Wasserstein distance for RBoN-WD and compute_logprob.sh computes the log probability used in RBoN-KL. Then finally we run mbr/compute_rbon.py to compute the result of the decoding.
+Running RBoN takes a multiple steps. 
+
+1. First you generate a set of responses using sample.sh. We use the same set of samples generated for all the algorithms for fair comparison.
+2. Compute Wasserstein distance and KL divergence using compute_wd.sh and compute_logprob.sh. 
+3. Run mbr/compute_rbon.py to compute RBoN-WD and RBoN-KL.
+
+You get the scores in csv file.
 
 ### Sampling candidates
 
