@@ -16,7 +16,7 @@ Running RBoN takes a multiple steps.
 3. Compute the reward of the responses.
 3. Run mbr/compute_rbon.py to compute RBoN-WD and RBoN-KL.
 
-You get the scores in csv file.
+You get the csv file in results/ directory.
 
 ### Sampling candidates
 
