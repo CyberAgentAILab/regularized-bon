@@ -89,14 +89,14 @@ def load_dataset(dataset, ref=False, raw_text=False):
         if not ref:
             lines = []
             for d in dataset:
-                if d['input'] == "":
-                    instruct = d['instruction']
-                else:
-                    instruct = d['instruction'] + '\n\n' + d['input']
+                # if d['input'] == "":
+                #     instruct = d['instruction']
+                # else:
+                #     instruct = d['instruction'] + '\n\n' + d['input']
                 message = [
                     {
                         "role": "user",
-                        "content": instruct,
+                        "content": d['instruction'],
                     }
                 ]
                 lines.append(message)

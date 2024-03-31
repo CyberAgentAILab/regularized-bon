@@ -1,9 +1,9 @@
 # Default parameters are set to run a debug experiment.
 
 DOMAIN=alpaca
-MODEL=dolly-v2-3b
-NLINES=3
-NSAMPLES=5
+MODEL=gpt2
+NLINES=4
+NSAMPLES=4
 EPS=0.01
 TOPK=0
 TOPP=1.0

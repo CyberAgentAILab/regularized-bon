@@ -4,12 +4,12 @@ import os
 import matplotlib.pyplot as plt
 import seaborn as sns
 import argparse
-
+from tqdm import tqdm
 
 def compute_scores(dataset, model, proxy, gold, alphas, ninstances=805, ncandidates=128):
-    matrix_file = "matrix/{}/{}/".format(dataset, model) + "{:04d}_eps-0.00_topk-00_topp-0.90_sentbert_128"
-    prob_file = "logprob/{}/{}/".format(dataset, model) + "{:04d}_eps-0.00_topk-00_topp-0.90"
-    reward_file = "reward/{}/{}/".format(dataset, model) + "{:04d}_eps-0.00_topk-00_topp-0.90_{}"
+    matrix_file = "matrix/{}/{}/".format(dataset, model) + "{:04d}_eps-0.01_topk-00_topp-1.00_sentbert_" + str(ncandidates)
+    prob_file = "logprob/{}/{}/".format(dataset, model) + "{:04d}_eps-0.01_topk-00_topp-1.00"
+    reward_file = "reward/{}/{}/".format(dataset, model) + "{:04d}_eps-0.01_topk-00_topp-1.00_{}"
 
     rows = []
     
@@ -18,7 +18,7 @@ def compute_scores(dataset, model, proxy, gold, alphas, ninstances=805, ncandida
     else:
         reward_names = [os.path.basename(proxy), os.path.basename(gold)]
 
-    for instance_id in range(ninstances):
+    for instance_id in tqdm(range(ninstances)):
     # for instance_id in range(805):
         matrix_df = pd.DataFrame(np.loadtxt(matrix_file.format(instance_id))[:ncandidates,:ncandidates])
         rewards = []
@@ -65,17 +65,17 @@ def compute_scores(dataset, model, proxy, gold, alphas, ninstances=805, ncandida
     df = pd.DataFrame(rows,
         columns=['BoN', 'MBR'] + ['WD-BoN-{}'.format(alpha) for alpha in alphas] + ['KL-BoN-{}'.format(alpha) for alpha in alphas] + ['Oracle', 'Random'])
 
-    df.to_csv('klbon_' + os.path.basename(proxy) + "_" + os.path.basename(gold) + "_" + str(ncandidates) + ".csv", index=False)
+    df.to_csv('results/klbon_' + os.path.basename(proxy) + "_" + os.path.basename(gold) + "_" + str(ncandidates) + ".csv", index=False)
 
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument("--dataset", type=str, default='alpaca')
-    parser.add_argument("--model", type=str, default='mistral-7b-sft-beta') # or 'dolly-v2-3b'
+    parser.add_argument("--model", type=str, default='gpt2')
     parser.add_argument("--proxy", type=str, default='stanfordnlp/SteamSHP-flan-t5-large')
-    parser.add_argument("--gold", type=str, default='llm-blender/PairRM')
-    parser.add_argument("--ninstances", type=int, default=805)
-    parser.add_argument("--ncandidates", type=int, default=128)
+    parser.add_argument("--gold", type=str, default='OpenAssistant/reward-model-deberta-v3-large-v2')
+    parser.add_argument("--ninstances", type=int, default=4)
+    parser.add_argument("--ncandidates", type=int, default=4)
 
     args = parser.parse_args()
     dataset = args.dataset
@@ -86,4 +86,6 @@ if __name__ == "__main__":
     ncandidates = args.ncandidates
 
     alphas = [0.0001, 0.0002, 0.0005, 0.001, 0.002, 0.005, 0.01, 0.02, 0.05, 0.1, 0.2, 0.5, 1.0]
+
+    os.makedirs('./results', exist_ok=True)
     compute_scores(dataset, model, proxy, gold, alphas, ninstances=ninstances, ncandidates=ncandidates)

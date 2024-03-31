@@ -13,6 +13,7 @@ Running RBoN takes a multiple steps.
 
 1. First you generate a set of responses using sample.sh. We use the same set of samples generated for all the algorithms for fair comparison.
 2. Compute Wasserstein distance and KL divergence using compute_wd.sh and compute_logprob.sh. 
+3. Compute the reward of the responses.
 3. Run mbr/compute_rbon.py to compute RBoN-WD and RBoN-KL.
 
 You get the scores in csv file.
@@ -35,7 +36,32 @@ You get the scores in csv file.
 ./experiments/compute_logprob.sh -d alpaca -s [NUMBER OF SAMPLES] 
 ```
 
+### Computing the reward of the samples
+
+```
+./experiments/compute_reward.sh -d alpaca -s [NUMBER OF SAMPLES] -i stanfordnlp/SteamSHP-flan-t5-large
+./experiments/compute_reward.sh -d alpaca -s [NUMBER OF SAMPLES] -i OpenAssistant/reward-model-deberta-v3-large-v2
+```
+
+
 ### Computing RBoN
 ```
 python3 mbr/compute_rbon.py --dataset alpaca --ncandidates [NUMBER OF SAMPLES]
 ```
+
+
+## Reference
+
+Jinnai, Y., Morimura, T., Ariu, K., and Abe, K. (2024). Regularized Best-of-N Sampling to Mitigate Reward Hacking for Language Model Alignment. To appear.
+
+Bibtex:
+```
+@article{jinnai2024regularized,
+      title={Regularized Best-of-N Sampling to Mitigate Reward Hacking for Language Model Alignment},
+      author={Yuu Jinnai and Tetsuro Morimura and Kaito Ariu and Kenshi Abe},
+      year={2024},
+}
+```
+
+## Contact
+For any questions, feel free to raise an issue or contact me at jinnai_yu@cyberagent.co.jp.

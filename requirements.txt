@@ -1,4 +1,4 @@
-transformer
+transformers
 py7zr
 datasets
 einops
@@ -17,4 +17,4 @@ google-cloud-storage
 scikit-learn-extra
 torchmetrics
 peft
-git+https://github.com/yuchenlin/LLM-Blender.git
+git+https://github.com/jinnaiyuu/LLM-Blender.git

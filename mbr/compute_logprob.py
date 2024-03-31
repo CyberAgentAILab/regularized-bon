@@ -70,7 +70,7 @@ if __name__ == "__main__":
 
     model_n = os.path.basename(model_name)
 
-    os.makedirs(os.path.join('../logprob', dataset, model_n), exist_ok=True)
+    os.makedirs(os.path.join('./logprob', dataset, model_n), exist_ok=True)
 
     files = sorted(os.listdir(sample_dir))
     filtered_files = load_samples_from_file(files, epsilon, topk, topp, True, 0, 0.0)
@@ -106,7 +106,7 @@ if __name__ == "__main__":
             probs.append(p)
         
         filename = "{:04}_eps-{:.2f}_topk-{:02d}_topp-{:.2f}".format(sample_id, epsilon, topk, topp)
-        outfilepath = os.path.join('../logprob', dataset, model_n, filename)
+        outfilepath = os.path.join('./logprob', dataset, model_n, filename)
 
         df = pd.DataFrame(probs, columns=[model_n])
         df.to_csv(outfilepath, index=False)

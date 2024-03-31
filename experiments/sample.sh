@@ -1,15 +1,14 @@
 DOMAIN=alpaca
-MODEL=None # Use "None" for using the sequence-to-sequence models.
-PROMPT=None
-NLINES=3
+MODEL=openai-community/gpt2 # Use "None" for using the sequence-to-sequence models.
+PROMPT=dummy.txt
+NLINES=4
 STARTITER=0
-NSAMPLES=37
+NSAMPLES=4
 
 EPS=0.01
 TOPK=0
 TOPP=1.0 # nucleus
 DOSAMPLE=1
-DIVERSITY=1.0
 
 BSZ=16
 
@@ -32,9 +31,6 @@ do
         TOPK=${OPTARG};;
     n)
         TOPP=${OPTARG};;
-    t)
-        DOSAMPLE=0
-        DIVERSITY=${OPTARG};;
     z)
         BSZ=${OPTARG};;
     a)
@@ -55,5 +51,5 @@ python3 mbr/sample.py $DOMAIN \
     --n_lines $NLINES --start_iter $STARTITER \
     --n_samples $NSAMPLES \
     --eps $EPS --topk $TOPK --topp $TOPP \
-    --do_sample $DOSAMPLE --diversity_penalty $DIVERSITY \
+    --do_sample $DOSAMPLE \
     --bsz $BSZ
