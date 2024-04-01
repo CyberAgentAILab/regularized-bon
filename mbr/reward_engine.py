@@ -6,8 +6,6 @@ import json
 import numpy as np
 import pandas as pd
 
-import boto3
-
 from utility_func import *
 from utils import load_dataset, load_matrix, load_samples_from_file, result_dir, matrix_dir, reward_dir
 from parser import get_mbr_parser
