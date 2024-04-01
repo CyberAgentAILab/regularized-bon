@@ -9,16 +9,18 @@ pip install -r requirements.txt
 
 ## Running RBoN
 
-Running RBoN takes a multiple steps. 
+Running RBoN takes multiple steps. 
 
 1. First you generate a set of responses using sample.sh. We use the same set of samples generated for all the algorithms for fair comparison.
 2. Compute Wasserstein distance and KL divergence using compute_wd.sh and compute_logprob.sh. 
 3. Compute the reward of the responses.
 3. Run mbr/compute_rbon.py to compute RBoN-WD and RBoN-KL.
 
-You get the csv file in results/ directory.
+You get the CSV file in the results/ directory.
 
 ### Sampling candidates
+
+By default, it runs using [openai-community/gpt2](https://huggingface.co/openai-community/gpt2). Add `-m [MODEL NAME IN HUGGINGFACE HUB]` to change the language model.
 
 ```
 ./experiments/sample.sh -d alpaca -s [NUMBER OF SAMPLES] 
