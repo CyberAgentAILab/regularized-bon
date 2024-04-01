@@ -4,6 +4,8 @@ Implementation of Regularized Best-of-N (RBoN).
 
 
 ```
+git clone git@github.com:CyberAgentAILab/regularized-bon
+cd regularized-bon
 pip install -r requirements.txt
 ```
 
