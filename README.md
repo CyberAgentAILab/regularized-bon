@@ -9,7 +9,7 @@ cd regularized-bon
 pip install -r requirements.txt
 ```
 
-## Running RBoN
+## Usage
 
 Running RBoN takes multiple steps. 
 
