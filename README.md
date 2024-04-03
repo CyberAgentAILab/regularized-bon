@@ -58,14 +58,17 @@ python3 mbr/compute_rbon.py --dataset alpaca --ncandidates [NUMBER OF SAMPLES]
 
 ## Reference
 
-Jinnai, Y., Morimura, T., Ariu, K., and Abe, K. (2024). Regularized Best-of-N Sampling to Mitigate Reward Hacking for Language Model Alignment. To appear.
+Jinnai, Y., Morimura, T., Ariu, K., and Abe, K. Regularized Best-of-N Sampling to Mitigate Reward Hacking for Language Model Alignment. arXiv preprint arXiv:2404.01054, 2024.
 
 Bibtex:
 ```
-@article{jinnai2024regularized,
-      title={Regularized Best-of-N Sampling to Mitigate Reward Hacking for Language Model Alignment},
+@misc{jinnai2024regularized,
+      title={Regularized Best-of-N Sampling to Mitigate Reward Hacking for Language Model Alignment}, 
       author={Yuu Jinnai and Tetsuro Morimura and Kaito Ariu and Kenshi Abe},
       year={2024},
+      eprint={2404.01054},
+      archivePrefix={arXiv},
+      primaryClass={cs.CL}
 }
 ```
 
