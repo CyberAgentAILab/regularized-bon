@@ -1,6 +1,6 @@
 ## Regularized Best-of-N
 
-Implementation of Regularized Best-of-N (RBoN).
+Implementation of [Regularized Best-of-N (RBoN)](https://arxiv.org/abs/2404.01054).
 
 The code is tested on Ubuntu 20.04 using Python 3.8 and CUDA 11.0 (Docker image nvidia/cuda:11.0.3-cudnn8-devel-ubuntu20.04).
 
