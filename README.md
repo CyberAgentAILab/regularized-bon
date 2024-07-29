@@ -1,6 +1,6 @@
 ## Regularized Best-of-N
 
-Implementation of [Regularized Best-of-N (RBoN)](https://arxiv.org/abs/2404.01054).
+Implementation of [Regularized Best-of-N (RBoN)](https://openreview.net/forum?id=ewRlZPAReR).
 
 The code is tested on Ubuntu 20.04 using Python 3.8 and CUDA 11.0 (Docker image nvidia/cuda:11.0.3-cudnn8-devel-ubuntu20.04).
 
@@ -58,17 +58,17 @@ python3 mbr/compute_rbon.py --dataset alpaca --ncandidates [NUMBER OF SAMPLES]
 
 ## Reference
 
-Jinnai, Y., Morimura, T., Ariu, K., and Abe, K. Regularized Best-of-N Sampling to Mitigate Reward Hacking for Language Model Alignment. arXiv preprint arXiv:2404.01054, 2024.
+Jinnai, Y., Morimura, T., Ariu, K., and Abe, K. Regularized Best-of-N Sampling to Mitigate Reward Hacking for Language Model Alignment. ICML 2024 Workshop on Models of Human Feedback for AI Alignment, 2024.
 
 Bibtex:
 ```
-@misc{jinnai2024regularized,
-      title={Regularized Best-of-N Sampling to Mitigate Reward Hacking for Language Model Alignment}, 
-      author={Yuu Jinnai and Tetsuro Morimura and Kaito Ariu and Kenshi Abe},
-      year={2024},
-      eprint={2404.01054},
-      archivePrefix={arXiv},
-      primaryClass={cs.CL}
+@inproceedings{
+jinnai2024regularized,
+title={Regularized Best-of-N Sampling to Mitigate Reward Hacking for Language Model Alignment},
+author={Yuu Jinnai and Tetsuro Morimura and Kaito Ariu and Kenshi Abe},
+booktitle={ICML 2024 Workshop on Models of Human Feedback for AI Alignment},
+year={2024},
+url={https://openreview.net/forum?id=ewRlZPAReR}
 }
 ```
 
