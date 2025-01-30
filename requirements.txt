@@ -8,7 +8,7 @@ evaluate
 bert_score
 unbabel-comet
 absl-py
-nltk==3.8.1
+nltk==3.9
 rouge-score==0.1.2
 sacremoses==0.0.53
 sortedcontainers
