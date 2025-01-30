@@ -18,7 +18,7 @@ Running RBoN takes multiple steps.
 1. First you generate a set of responses using sample.sh. We use the same set of samples generated for all the algorithms for fair comparison.
 2. Compute Wasserstein distance and KL divergence using compute_wd.sh and compute_logprob.sh. 
 3. Compute the reward of the responses.
-3. Run mbr/compute_rbon.py to compute RBoN-WD and RBoN-KL.
+3. Run mbr/compute_rbon.py to compute MBR-BoN (RBoN-WD) and RBoN-KL.
 
 You get the CSV file in the results/ directory.
 
@@ -50,7 +50,7 @@ By default, it runs using [openai-community/gpt2](https://huggingface.co/openai-
 ```
 
 
-### Computing RBoN
+### Computing MBR-BoN and RBoN_KL
 ```
 python3 mbr/compute_rbon.py --dataset alpaca --ncandidates [NUMBER OF SAMPLES]
 ```
