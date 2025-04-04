@@ -30,6 +30,10 @@ By default, it runs using [openai-community/gpt2](https://huggingface.co/openai-
 ./experiments/sample.sh -d alpaca -s [NUMBER OF SAMPLES] 
 ```
 
+Due to the backward compatibility in my codebase, sample.py has to select a prompt file even for tasks like AlpacaFarm that don't have a prompt shared prompt for the task.
+To this end, we have a dummy.txt which is a blank file so that we can select this blank file to say that we don't have a shared prompt for the task.
+
+
 ### Computing Wasserstein distance
 
 ```
